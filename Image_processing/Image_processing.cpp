@@ -1,7 +1,7 @@
 #include "Image_processing.h"
 #include "Image_Removal_ui.h"
 #include "Image_Rotate_ui.h"
-//#include "Image_Crop_ui.h"
+#include "Image_Crop.h"
 
 #include <qfiledialog.h>
 #include <qmessagebox.h>
@@ -73,15 +73,15 @@ void Image_processing::on_Rotate_button_clicked() {
 	return;
 }
 
-/* 构图功能子窗口 
+/* 构图功能子窗口*/
 void Image_processing::on_Crop_button_clicked() {
-	Image_Crop_ui* w;
-	w = new Image_Crop_ui;
+	Image_crop* w;
+	w = new Image_crop;
 	w->show();
-	//connect(w, SIGNAL(send_rotate_mat(cv::Mat)), this, SLOT(receive_mat(cv::Mat)), Qt::UniqueConnection);
+	connect(w, SIGNAL(send_crop_mat(cv::Mat)), this, SLOT(receive_mat(cv::Mat)), Qt::UniqueConnection);
 	return;
 }
-*/
+
 
 // 读取子窗口处理好的图像
 void Image_processing::receive_mat(cv::Mat r_Mat) {
@@ -94,7 +94,7 @@ void Image_processing::receive_mat(cv::Mat r_Mat) {
 	cv::cvtColor(tmat, tmat, cv::COLOR_BGR2RGB);
 	QImage Qinput = QImage((const unsigned char*)(tmat.data), tmat.cols, tmat.rows, tmat.step, QImage::Format_RGB888);
 	ui.Photo_label->resize(tmat.size().width, tmat.size().height);
-	qDebug() << row << col << ui.Photo_label->size().height()<< ui.Photo_label->size().width()<< tmat.size().height<<tmat.size().width;
+	qDebug() <<ui.Photo_label->pos() << ui.Photo_label->size().height()<< ui.Photo_label->size().width()<< tmat.size().height<<tmat.size().width;
 	ui.Photo_label->setPixmap(QPixmap::fromImage(Qinput.scaled(ui.Photo_label->size())));
 	//ui.Photo_label->setPixmap(QPixmap::fromImage(Qinput));
 	//ui.Photo_label->setScaledContents(true);
