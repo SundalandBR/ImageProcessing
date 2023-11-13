@@ -7,7 +7,6 @@ Image_Rotate_ui::Image_Rotate_ui(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
-
 	cv::Mat tmat;
 	Input.copyTo(tmat);
 	cv::cvtColor(tmat, tmat, cv::COLOR_BGR2RGB);
