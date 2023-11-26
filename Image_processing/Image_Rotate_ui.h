@@ -25,5 +25,6 @@ signals:
 
 private:
 	Ui::Image_Rotate_uiClass ui;
+	virtual void paintEvent(QPaintEvent* event) override;
 
 };

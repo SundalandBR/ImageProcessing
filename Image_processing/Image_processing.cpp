@@ -2,6 +2,7 @@
 #include "Image_Removal_ui.h"
 #include "Image_Rotate_ui.h"
 #include "Image_Crop.h"
+#include "Image_brightAcontras.h"
 
 #include <qfiledialog.h>
 #include <qmessagebox.h>
@@ -21,6 +22,11 @@ Image_processing::Image_processing(QWidget *parent)
     connect(ui.Imgread_button, SIGNAL(clicked()), this, SLOT(on_ImgRead_menu_clicked()), Qt::UniqueConnection);
     connect(ui.Removal_button, SIGNAL(clicked()), this, SLOT(on_Removal_button_clicked()), Qt::UniqueConnection);
     connect(ui.open_file_menu, SIGNAL(triggered()), this, SLOT(on_ImgRead_menu_clicked()), Qt::UniqueConnection);
+	connect(ui.B_and_C_button, SIGNAL(clicked()), this, SLOT(on_B_and_C_button_clicked()), Qt::UniqueConnection);
+
+
+
+
 }
 
 Image_processing::~Image_processing()
@@ -79,6 +85,14 @@ void Image_processing::on_Crop_button_clicked() {
 	w = new Image_crop;
 	w->show();
 	connect(w, SIGNAL(send_crop_mat(cv::Mat)), this, SLOT(receive_mat(cv::Mat)), Qt::UniqueConnection);
+	return;
+}
+
+void Image_processing::on_B_and_C_button_clicked() {
+	Image_brightAcontras* w;
+	w = new Image_brightAcontras;
+	w->show();
+	connect(w, SIGNAL(bright_and_constras_mat(cv::Mat)), this, SLOT(receive_mat(cv::Mat)), Qt::UniqueConnection);
 	return;
 }
 

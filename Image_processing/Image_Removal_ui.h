@@ -15,6 +15,7 @@ public:
 
 private:
 	Ui::Image_Removal_uiClass ui;
+	virtual void paintEvent(QPaintEvent* event) override;
 
 private slots:
 	void IMAGE_REMOVAL(int redius, double omega, bool GD, int G_redius, double reg, double t0);

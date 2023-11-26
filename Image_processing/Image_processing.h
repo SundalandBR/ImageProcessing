@@ -23,6 +23,7 @@ private slots:
     void on_Rotate_button_clicked();
     void on_open_file_menu_clicked();
     void on_Crop_button_clicked();
+    void on_B_and_C_button_clicked();
     void receive_mat(cv::Mat r_Mat);
 
 private:

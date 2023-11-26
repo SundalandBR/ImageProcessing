@@ -58,8 +58,17 @@
     <ClCompile Include="Image_Rotate_ui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Image_contras_bright.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_exposure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_brightAcontras.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Image_crop.cpp">
-      <Filter>zw</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +78,11 @@
     <QtUic Include="Image_Rotate_ui.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="Image_brightAcontras.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
     <QtUic Include="Image_crop.ui">
-      <Filter>zw</Filter>
+      <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +98,12 @@
     <ClInclude Include="Image_Rotate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Image_contras.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image_exposure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Image_Removal_ui.h">
@@ -94,8 +112,11 @@
     <QtMoc Include="Image_Rotate_ui.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Image_brightAcontras.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="Image_crop.h">
-      <Filter>zw</Filter>
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
