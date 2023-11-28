@@ -10,13 +10,6 @@ Image_Removal_ui::Image_Removal_ui(QWidget *parent)
 	: QMainWindow(parent)
 {
 
-	/*
-	QPalette palette;
-	//设置主窗口背景颜色
-	palette.setColor(QPalette::Window, QColor(72, 72, 72));
-	this->setPalette(palette);
-	*/
-
 	ui.setupUi(this);
 
 	Input.copyTo(removal_mat);

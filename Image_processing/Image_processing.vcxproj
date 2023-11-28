@@ -100,6 +100,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Image_blur.cpp" />
     <ClCompile Include="Image_Histogram.cpp" />
     <QtRcc Include="Image_processing.qrc" />
     <QtUic Include="Image_brightAcontras.ui" />
@@ -116,14 +117,17 @@
     <ClCompile Include="Image_Removal_ui.cpp" />
     <ClCompile Include="Image_Rotate.cpp" />
     <ClCompile Include="Image_Rotate_ui.cpp" />
+    <ClCompile Include="Image_sharpening.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="Image_Removal_ui.ui" />
     <QtUic Include="Image_Rotate_ui.ui" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GuidedFilter.h" />
+    <ClInclude Include="Image_sharpening.h" />
     <QtMoc Include="Image_crop.h" />
     <QtMoc Include="Image_brightAcontras.h" />
+    <ClInclude Include="Image_blur.h" />
     <ClInclude Include="Image_contras.h" />
     <ClInclude Include="Image_exposure.h" />
     <ClInclude Include="Image_Histogram.h" />
