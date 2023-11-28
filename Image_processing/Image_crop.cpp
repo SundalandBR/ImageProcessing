@@ -4,10 +4,10 @@
 extern cv::Mat Input;
 static cv::Mat Output;
 
-Image_crop::Image_crop(QWidget *parent)
-	: QMainWindow(parent)
+Image_crop::Image_crop(QWidget* parent)
+    : QMainWindow(parent)
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
 
     CONSTRUCTED_FUNCTION = true;
 
@@ -76,7 +76,7 @@ void Image_crop::after_image_crop() {
     centerRect_.setY(labelY_);
     centerRect_.setWidth(labelWidth_);
     centerRect_.setHeight(labelHeigth_);
-    return ;
+    return;
 }
 
 void Image_crop::choose_ratio(QString s) {
@@ -100,10 +100,10 @@ void Image_crop::choose_ratio(QString s) {
     else if (s == "9:16") {
         ratio = 9.0 / 16;
     }
-    else if (s.compare(QString::fromLocal8Bit("原比例"))==0) {
-        ratio = 1.0*labelWidth_ / labelHeigth_;
+    else if (s.compare(QString::fromLocal8Bit("原比例")) == 0) {
+        ratio = 1.0 * labelWidth_ / labelHeigth_;
     }
-    else if (s.compare(QString::fromLocal8Bit("自由"))==0){
+    else if (s.compare(QString::fromLocal8Bit("自由")) == 0) {
         fix_crop = false;
     }
 
@@ -142,7 +142,7 @@ void Image_crop::setFixCenterRectRatio(float ratio) {
 
 //中心矩阵合法性判断
 void Image_crop::check_centerRect() {
-    
+
     // labelx <= center.x <= labelx + width
     // labelx + center.width <= center.x  + center.width <= labelx + width
 
@@ -151,11 +151,11 @@ void Image_crop::check_centerRect() {
 
 
 
-    if (centerRect_.top() < labelY_ ) {
+    if (centerRect_.top() < labelY_) {
         centerRect_.setTop(labelY_);
     }
     if (centerRect_.bottom() > labelY_ + labelHeigth_ - 1) {
-        centerRect_.setBottom( labelY_ + labelHeigth_ - 1);
+        centerRect_.setBottom(labelY_ + labelHeigth_ - 1);
     }
     if (centerRect_.left() < labelX_) {
         centerRect_.setLeft(labelX_);
@@ -169,11 +169,11 @@ void Image_crop::check_centerRect() {
 
 void Image_crop::setRects() {
 
-    leftRect_.setRect(labelX_, labelY_ , centerRect_.x() - labelX_, labelHeigth_);
-    topRect_.setRect(centerRect_.x(), labelY_ , centerRect_.width() + sLineWidth_, centerRect_.y() - labelY_);
+    leftRect_.setRect(labelX_, labelY_, centerRect_.x() - labelX_, labelHeigth_);
+    topRect_.setRect(centerRect_.x(), labelY_, centerRect_.width() + sLineWidth_, centerRect_.y() - labelY_);
     rightRect_.setRect(centerRect_.width() + centerRect_.x() + sLineWidth_, labelY_, labelX_ + labelWidth_ - centerRect_.width() - centerRect_.x() + 1, labelHeigth_);
-    bottomRect_.setRect(centerRect_.x(), centerRect_.height() + centerRect_.y() + sLineWidth_, centerRect_.width() + sLineWidth_, labelY_ + labelHeigth_ - centerRect_.height() - centerRect_.y()-1);
-        
+    bottomRect_.setRect(centerRect_.x(), centerRect_.height() + centerRect_.y() + sLineWidth_, centerRect_.width() + sLineWidth_, labelY_ + labelHeigth_ - centerRect_.height() - centerRect_.y() - 1);
+
 
 }
 
@@ -220,7 +220,7 @@ void Image_crop::send_crop_mat() {
 }
 
 void Image_crop::image_crop_cv(cv::Rect rect) {
-    cv::Rect src_rect(0, 0, Input.cols,Input.rows);
+    cv::Rect src_rect(0, 0, Input.cols, Input.rows);
     rect = rect & src_rect;
     Output.create(cv::Size(rect.width, rect.height), Input.type());
     Input(rect).copyTo(Output);
@@ -258,13 +258,13 @@ void Image_crop::mouseReleaseEvent(QMouseEvent* e)
 
 bool Image_crop::eventFilter(QObject* obj, QEvent* e) {
 
-    
+
     if (obj == labelLeftBottom_
         || obj == labelRightBottom_
         || obj == labelLeftTop_
         || obj == labelRightTop_) {
         if (e->type() == QEvent::MouseButtonPress) {
-            QMouseEvent *event = (QMouseEvent*)e;
+            QMouseEvent* event = (QMouseEvent*)e;
             /*
             * LeftButton 表示鼠标左键按下
             * NoButton 表示鼠标在移动
@@ -340,7 +340,7 @@ bool Image_crop::eventFilter(QObject* obj, QEvent* e) {
                                 centerRect_.setBottom(rc.top() + sCenterRectMinWidth_);
                             }
                             centerRect_.setRight(rc.left() + cvRound(centerRect_.height() * fixCenterRectRatio_));
-                            if (centerRect_.right() > labelX_ + +labelWidth_ - sLineWidth_ ){
+                            if (centerRect_.right() > labelX_ + +labelWidth_ - sLineWidth_) {
                                 centerRect_.setRight(labelX_ + +labelWidth_ - sLineWidth_);
                                 centerRect_.setBottom(rc.top() + cvRound(centerRect_.width() / fixCenterRectRatio_));
                             }
@@ -367,8 +367,8 @@ bool Image_crop::eventFilter(QObject* obj, QEvent* e) {
                                 centerRect_.setLeft(centerRect_.right() - sCenterRectMinWidth_);
                             }
                             centerRect_.setTop(rc.bottom() - cvRound(centerRect_.width() / fixCenterRectRatio_));
-                            if (centerRect_.top() < labelY_ ) {
-                                centerRect_.setTop(labelY_ );
+                            if (centerRect_.top() < labelY_) {
+                                centerRect_.setTop(labelY_);
                                 centerRect_.setLeft(rc.right() - cvRound(centerRect_.height() * fixCenterRectRatio_));
                             }
                         }
