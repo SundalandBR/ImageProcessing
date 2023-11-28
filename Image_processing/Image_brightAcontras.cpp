@@ -69,7 +69,7 @@ void Image_brightAcontras::s_send() {
 }
 
 void Image_brightAcontras::s_contras(double beta,double alpha,double gamma) {
-	Image_contras(Input, Output, beta,alpha);
+	Image_contras_bright(Input, Output, beta,alpha);
 	Image_contras_gamma(Output, Output, gamma);
 	this->update();
 }

@@ -47,6 +47,7 @@ private:
 	QRect center_move_location_;//中心框起始位置
 
 	QPixmap pix;
+	QImage _pix;
 
 	float fix_ratio;//比例缩放的比例值 16/9,4/3 
 	bool fix_crop = false;//是否按比例缩放
@@ -63,8 +64,6 @@ private:
 	static int sLineWidth_;//选择框边线宽度
 	static int sDragDotOffset_;//四个顶点的offset值
 
-
-
 	QRect    dragMoveLocation_;//保存centerRect_移动时的初始值
 	QPoint   dragZoomPos_;//四个顶点被QMouseEvent press时的初始值
 	bool     dragZoomRunning_;//四个顶点被QMouseEvent press时的
@@ -72,7 +71,10 @@ private:
 	float    fixCenterRectRatio_;//选择框固定比例值缩放，不设置该值时非固定比例缩放
 	//std::function<void(QRect rect)> selectRectChange_;//选择框变化时回调函数
 
+
+
 private:
+	void paint_label();
 	void image_crop_cv(cv::Rect rect);
 	void check_centerRect();
 	virtual void mousePressEvent(QMouseEvent* e) override;

@@ -70,6 +70,9 @@
     <ClCompile Include="Image_crop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Image_Histogram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Image_Removal_ui.ui">
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Image_exposure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image_Histogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

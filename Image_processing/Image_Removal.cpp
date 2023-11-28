@@ -263,7 +263,6 @@ static cv::Mat Haze_Removal(cv::Mat Input, double* a, cv::Mat t, double t0) {
             p[i] = p[i] - *(a + i);
             p[i] /= t;
             p[i] += *(a + i);
-
             //类型转化
             p[i].convertTo(p[i], CV_8U, 255);
             q.push_back(p[i]);

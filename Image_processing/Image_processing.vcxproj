@@ -70,6 +70,10 @@
     <Link>
       <AdditionalDependencies>opencv_world480d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
@@ -96,6 +100,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Image_Histogram.cpp" />
     <QtRcc Include="Image_processing.qrc" />
     <QtUic Include="Image_brightAcontras.ui" />
     <QtUic Include="Image_crop.ui" />
@@ -121,6 +126,7 @@
     <QtMoc Include="Image_brightAcontras.h" />
     <ClInclude Include="Image_contras.h" />
     <ClInclude Include="Image_exposure.h" />
+    <ClInclude Include="Image_Histogram.h" />
     <ClInclude Include="Image_opencv.h" />
     <ClInclude Include="Image_Removal.h" />
     <ClInclude Include="Image_Rotate.h" />
