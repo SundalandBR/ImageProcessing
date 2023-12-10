@@ -72,27 +72,3 @@ cv::Mat GuideFilter(cv::Mat I,cv::Mat p,int redius,double reg) {
 
 	return q;
 }
-
-//ÆúÓÃ
-static cv::Mat Image_Removal_GuidedFilter_gray(cv::Mat Input, int redius, double reg) {
-	cv::Mat I, dst;
-	if (Input.channels() > 1) {
-		cv::cvtColor(Input, I, cv::COLOR_GRAY2BGR);
-	}
-	else {
-		Input.copyTo(I);
-	}
-	std::vector<cv::Mat> p, q;
-	if (Input.channels() > 1) {
-		cv::split(Input, p);
-		for (int i = 0; i < Input.channels(); i++) {
-			dst = GuideFilter(I, p[i], redius, reg);
-			q.push_back(dst);
-		}
-		cv::merge(q, dst);
-	}
-	else {
-		dst = GuideFilter(I, Input, redius, reg);
-	}
-	return dst;
-}

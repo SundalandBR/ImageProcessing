@@ -230,9 +230,9 @@ QMenu::item:selected {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="curve1">
         <property name="text">
-         <string>PushButton</string>
+         <string>曲线调色</string>
         </property>
        </widget>
       </item>

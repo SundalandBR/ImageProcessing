@@ -61,14 +61,14 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IncludePath>D:\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Qt\6.5.3\msvc2019_64\include\QtCharts;D:\opencv\opencv\build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Qt\6.5.3\msvc2019_64\lib;D:\opencv\opencv\build\x64\vc16\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
-      <AdditionalDependencies>opencv_world480d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world480d.lib;Qt6Chartsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -100,8 +100,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CurveChartView.cpp" />
     <ClCompile Include="Image_blur.cpp" />
+    <ClCompile Include="Image_ColorTemperature.cpp" />
     <ClCompile Include="Image_Histogram.cpp" />
+    <ClCompile Include="Curve_Spline.cpp" />
+    <ClCompile Include="Qt_curve.cpp" />
     <QtRcc Include="Image_processing.qrc" />
     <QtUic Include="Image_brightAcontras.ui" />
     <QtUic Include="Image_crop.ui" />
@@ -112,6 +116,7 @@
     <ClCompile Include="Image_contras_bright.cpp" />
     <ClCompile Include="Image_crop.cpp" />
     <ClCompile Include="Image_exposure.cpp" />
+    <ClCompile Include="Image_HSL.cpp" />
     <ClCompile Include="Image_processing.cpp" />
     <ClCompile Include="Image_Removal.cpp" />
     <ClCompile Include="Image_Removal_ui.cpp" />
@@ -121,10 +126,17 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="Image_Removal_ui.ui" />
     <QtUic Include="Image_Rotate_ui.ui" />
+    <QtUic Include="OperateCurve.ui" />
+    <QtUic Include="Qt_curve.ui" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="CurveChartView.h" />
+    <ClInclude Include="Curve_Spline.h" />
     <ClInclude Include="GuidedFilter.h" />
+    <ClInclude Include="Image_ColorTemperature.h" />
+    <ClInclude Include="Image_HSL.h" />
     <ClInclude Include="Image_sharpening.h" />
+    <QtMoc Include="Qt_curve.h" />
     <QtMoc Include="Image_crop.h" />
     <QtMoc Include="Image_brightAcontras.h" />
     <ClInclude Include="Image_blur.h" />

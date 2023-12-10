@@ -73,6 +73,27 @@
     <ClCompile Include="Image_Histogram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Image_blur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_sharpening.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_HSL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_ColorTemperature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Curve_Spline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CurveChartView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qt_curve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Image_Removal_ui.ui">
@@ -85,6 +106,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Image_crop.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Qt_curve.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="OperateCurve.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -110,6 +137,21 @@
     <ClInclude Include="Image_Histogram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Image_sharpening.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image_blur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image_HSL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Image_ColorTemperature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Curve_Spline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Image_Removal_ui.h">
@@ -122,6 +164,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Image_crop.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Qt_curve.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CurveChartView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -40,11 +40,21 @@ void Image_contras(cv::InputArray Input, cv::OutputArray Output, double beta,dou
 	double k = tan((45 + 44 * alpha) / 180 * CV_PI);
 	cv::Mat lookuptable(1, 256, CV_8U);
 	for (int i = 0; i < 256; i++) {
-		lookuptable.at<uchar>(i) = round(COLOR_RANGE((i - MID_PIXEL * (1 - beta)) * k + MID_PIXEL * (1 + beta)));
+		//lookuptable.at<uchar>(i) = round(COLOR_RANGE((i - MID_PIXEL * (1 - beta)) * k + MID_PIXEL * (1 + beta)));
+		lookuptable.at<uchar>(i) = COLOR_RANGE((i / 255.0) * (round(COLOR_RANGE((i - MID_PIXEL * (1 - beta)) * k + MID_PIXEL * (1 + beta))) - i) + i);
 	}
 	cv::LUT(src, lookuptable, dst);
 
 }
+
+
+
+/*
+* 
+*  i = new_i
+*  i = i / 255 * (new_i - i) + i
+* 
+*/
 
 void Image_contras_gamma(cv::InputArray _src, cv::OutputArray _dst, double gamma) {
 	/*

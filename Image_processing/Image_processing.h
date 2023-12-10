@@ -25,9 +25,14 @@ private slots:
     void on_Crop_button_clicked();
     void on_B_and_C_button_clicked();
     void receive_mat(cv::Mat r_Mat);
+    void on_curve_button_clicked();
 
 private:
     void update_photo_label();
 
 };
 
+class ip {
+    cv::Mat org;
+    cv::Mat dst;
+};

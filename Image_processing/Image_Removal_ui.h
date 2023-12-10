@@ -4,6 +4,9 @@
 #include "ui_Image_Removal_ui.h"
 #include "Image_opencv.h"
 
+
+
+
 class Image_Removal_ui : public QMainWindow
 {
 	Q_OBJECT

@@ -6,7 +6,7 @@
 
 #define PIEXL_RANGE(value, min, max)  ( (value) > (max) ? (max) : (((value) < (min)) ? (min) : (value)) )
 
-using namespace cv;
+
 
 
 void cdf(InputArray src, OutputArray dst,struct _cdf_ *_CDF) {

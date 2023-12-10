@@ -1,9 +1,6 @@
 #include "Image_sharpening.h"
 
-using namespace cv;
-
-
-void Image_sharpening(InputArray src,OutputArray dst,int filter,int reg) {
+void Image_sharpening(InputArray src, OutputArray dst, int filter, int reg) {
 	/*
 	* reg ÂË²¨Ç¿¶È [0,100]
 	*/
