@@ -11,28 +11,25 @@ int main(int argc, char *argv[])
 }
 
 
-
 /*
+
 #include "Image_blur.h"
 #include "Image_sharpening.h"
 #include "Image_HSL.h"
+#include "Image_whitebalance.h"
+
 #define min(a,b) ((a) < (b) ? (a) : (b))
 #define max(a,b) ((a) > (b) ? (a) : (b))
 
 int main() {
-    cv::Mat src = cv::imread("D:\\git\\Image\\test_image\\ff.PNG");
+    cv::Mat src = cv::imread("D:\\git\\Image\\test_image\\people.png");
     cv::Mat dst;
-    hsl** hsl;
-    hsl = RGB2HSL(src);
-    
 
-    //channel_hsl(hsl, 50, RED, src.rows, src.cols);
-    //HUE(hsl, 50, src.rows, src.cols);
-
-    HSL2RGB(src, dst, hsl);
+    whilepatch(src, dst, 100);
     imshow("1", src);
     imshow("2", dst);
     cv::waitKey();
 }
-*/
 
+
+*/

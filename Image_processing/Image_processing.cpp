@@ -4,6 +4,8 @@
 #include "Image_Crop.h"
 #include "Image_brightAcontras.h"
 #include "Qt_curve.h"
+#include "Image_curve1.h"
+#include "Image_curve2.h"
 
 #include <qfiledialog.h>
 #include <qmessagebox.h>
@@ -95,8 +97,8 @@ void Image_processing::on_B_and_C_button_clicked() {
 }
 
 void Image_processing::on_curve_button_clicked() {
-	Qt_curve *w;
-	w = new Qt_curve;
+	Image_curve2*w;
+	w = new Image_curve2;
 	w->show();
 	connect(w, SIGNAL(signalsendmat(cv::Mat)), this, SLOT(receive_mat(cv::Mat)), Qt::UniqueConnection);
 	return;

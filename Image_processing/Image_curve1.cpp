@@ -1,12 +1,11 @@
-#include "Qt_curve.h"
-#include "Curve_Spline.h"
+#include "Image_curve1.h"
 
 extern cv::Mat Input;
 static cv::Mat dst;
 
 using namespace std;
 
-Qt_curve::Qt_curve(QWidget *parent)
+Image_curve1::Image_curve1(QWidget* parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
@@ -32,19 +31,24 @@ Qt_curve::Qt_curve(QWidget *parent)
 	chart = create();
 	chartview->setChart(chart);
 	ui.horizontalLayout->addWidget(chartview);
-	
+
 	connect(chartview, SIGNAL(signalupdatedata(QPointF)), this, SLOT(slotTargetPoint(QPointF)));
 	connect(chartview, SIGNAL(signalMouseRelease(bool)), this, SLOT(slotMousePress(bool)));
 	connect(ui.comboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(choose_channel(QString)));
 	connect(ui.enter, SIGNAL(clicked()), this, SLOT(on_clicked_enterbutton()));
 	connect(ui.exit, SIGNAL(clicked()), this, SLOT(close()));
+	rgb_line->setUseOpenGL(true);
+	red_line->setUseOpenGL(true);
+	green_line->setUseOpenGL(true);
+	blue_line->setUseOpenGL(true);
+
 }
 
-Qt_curve::~Qt_curve()
+Image_curve1::~Image_curve1()
 {}
 
-QChart *Qt_curve::create() {
-	
+QChart* Image_curve1::create() {
+
 	org_data.append(QPointF(0, 0));
 	org_data.append(QPointF(84, 84));
 	org_data.append(QPointF(168, 168));
@@ -54,7 +58,7 @@ QChart *Qt_curve::create() {
 	target_data_r = org_data;
 	target_data_b = org_data;
 	target_data_g = org_data;
-	
+
 	target_data = &target_data_rgb;
 	lut = lut_rgb;
 
@@ -114,15 +118,15 @@ QChart *Qt_curve::create() {
 	chart->addSeries(rgb_line);
 	chart->addSeries(rgb_scatter);
 	chart->setAnimationOptions(QChart::NoAnimation);
-	connect(rgb_scatter, &QScatterSeries::hovered, this, &Qt_curve::PointHoverd);
-	connect(red_scatter, &QScatterSeries::hovered, this, &Qt_curve::PointHoverd);
-	connect(blue_scatter, &QScatterSeries::hovered, this, &Qt_curve::PointHoverd);
-	connect(green_scatter, &QScatterSeries::hovered, this, &Qt_curve::PointHoverd);
+	connect(rgb_scatter, &QScatterSeries::hovered, this, &Image_curve1::PointHoverd);
+	connect(red_scatter, &QScatterSeries::hovered, this, &Image_curve1::PointHoverd);
+	connect(blue_scatter, &QScatterSeries::hovered, this, &Image_curve1::PointHoverd);
+	connect(green_scatter, &QScatterSeries::hovered, this, &Image_curve1::PointHoverd);
 	return chart;
 }
 
 
-void Qt_curve::PointHoverd(const QPointF& point, bool state) {
+void Image_curve1::PointHoverd(const QPointF& point, bool state) {
 	x_index = 0;
 	for (; x_index < (*target_data).size(); x_index++) {
 		if (point == (*target_data)[x_index]) {
@@ -138,12 +142,12 @@ void Qt_curve::PointHoverd(const QPointF& point, bool state) {
 	in_point = state;
 }
 
-void Qt_curve::slotTargetPoint(QPointF point) {
+void Image_curve1::slotTargetPoint(QPointF point) {
 
 	qDebug() << in_point << press_;
 
 	if (in_point && press_) {
-		if (x_index<0 || x_index > (*target_data).size()) {
+		if (x_index<0 || x_index >(*target_data).size()) {
 			return;
 		}
 		else {
@@ -153,11 +157,11 @@ void Qt_curve::slotTargetPoint(QPointF point) {
 	}
 }
 
-void Qt_curve::slotMousePress(bool press) {
+void Image_curve1::slotMousePress(bool press) {
 	press_ = press;
 }
 
-void Qt_curve::updatedata(QPointF point) {
+void Image_curve1::updatedata(QPointF point) {
 	QLineSeries* old_lineseries = qobject_cast<QLineSeries*>(chart->series().at(0));
 	QScatterSeries* old_scatterseries = qobject_cast<QScatterSeries*>(chart->series().at(1));
 	double left = x_index - 1 > 0 ? (*target_data)[x_index - 1].x() : 0.f;
@@ -180,7 +184,7 @@ void Qt_curve::updatedata(QPointF point) {
 	updateMat();
 }
 
-void Qt_curve::updateMat() {
+void Image_curve1::updateMat() {
 
 
 	cv::Mat lookuptable(1, 256, CV_8UC3);
@@ -195,15 +199,15 @@ void Qt_curve::updateMat() {
 	cv::LUT(Input, lookuptable, dst);
 	cv::LUT(dst, lookuptable_rgb, dst);
 	cv::imshow("‘§¿¿Õº", dst);
-	
+
 }
 
-void Qt_curve::choose_channel(QString channel) {
+void Image_curve1::choose_channel(QString channel) {
 	QLineSeries* lineseries = qobject_cast<QLineSeries*>(chart->series().at(0));
 	QScatterSeries* scatterseries = qobject_cast<QScatterSeries*>(chart->series().at(1));
 	chart->removeSeries(lineseries);
 	chart->removeSeries(scatterseries);
-	
+
 	if (channel == "RGB") {
 		lineseries = rgb_line;
 		scatterseries = rgb_scatter;
@@ -232,7 +236,7 @@ void Qt_curve::choose_channel(QString channel) {
 	chart->addSeries(scatterseries);
 }
 
-void Qt_curve::on_clicked_enterbutton() {
+void Image_curve1::on_clicked_enterbutton() {
 	this->close();
 	emit signalsendmat(dst);
 }

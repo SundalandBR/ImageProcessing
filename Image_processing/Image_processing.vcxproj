@@ -103,12 +103,17 @@
     <ClCompile Include="CurveChartView.cpp" />
     <ClCompile Include="Image_blur.cpp" />
     <ClCompile Include="Image_ColorTemperature.cpp" />
+    <ClCompile Include="Image_curve1.cpp" />
+    <ClCompile Include="Image_curve2.cpp" />
     <ClCompile Include="Image_Histogram.cpp" />
     <ClCompile Include="Curve_Spline.cpp" />
+    <ClCompile Include="Image_whitebalance.cpp" />
     <ClCompile Include="Qt_curve.cpp" />
     <QtRcc Include="Image_processing.qrc" />
     <QtUic Include="Image_brightAcontras.ui" />
     <QtUic Include="Image_crop.ui" />
+    <QtUic Include="Image_curve1.ui" />
+    <QtUic Include="Image_curve2.ui" />
     <QtUic Include="Image_processing.ui" />
     <QtMoc Include="Image_processing.h" />
     <ClCompile Include="GuidedFilter.cpp" />
@@ -130,10 +135,13 @@
     <QtUic Include="Qt_curve.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Image_whitebalance.h" />
     <QtMoc Include="CurveChartView.h" />
     <ClInclude Include="Curve_Spline.h" />
     <ClInclude Include="GuidedFilter.h" />
     <ClInclude Include="Image_ColorTemperature.h" />
+    <QtMoc Include="Image_curve2.h" />
+    <QtMoc Include="Image_curve1.h" />
     <ClInclude Include="Image_HSL.h" />
     <ClInclude Include="Image_sharpening.h" />
     <QtMoc Include="Qt_curve.h" />

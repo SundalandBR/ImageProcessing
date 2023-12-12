@@ -94,6 +94,15 @@
     <ClCompile Include="Qt_curve.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Image_curve2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_curve1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Image_whitebalance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Image_Removal_ui.ui">
@@ -112,6 +121,12 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="OperateCurve.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Image_curve2.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Image_curve1.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -152,6 +167,9 @@
     <ClInclude Include="Curve_Spline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Image_whitebalance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Image_Removal_ui.h">
@@ -170,6 +188,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CurveChartView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Image_curve2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Image_curve1.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
