@@ -100,15 +100,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CurveChartView.cpp" />
-    <ClCompile Include="Image_blur.cpp" />
-    <ClCompile Include="Image_ColorTemperature.cpp" />
-    <ClCompile Include="Image_curve1.cpp" />
-    <ClCompile Include="Image_curve2.cpp" />
-    <ClCompile Include="Image_Histogram.cpp" />
-    <ClCompile Include="Curve_Spline.cpp" />
-    <ClCompile Include="Image_whitebalance.cpp" />
-    <ClCompile Include="Qt_curve.cpp" />
     <QtRcc Include="Image_processing.qrc" />
     <QtUic Include="Image_brightAcontras.ui" />
     <QtUic Include="Image_crop.ui" />

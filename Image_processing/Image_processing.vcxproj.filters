@@ -70,39 +70,6 @@
     <ClCompile Include="Image_crop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Image_Histogram.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_blur.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_sharpening.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_HSL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_ColorTemperature.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Curve_Spline.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CurveChartView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Qt_curve.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_curve2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_curve1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Image_whitebalance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Image_Removal_ui.ui">
@@ -147,27 +114,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Image_exposure.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Image_Histogram.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Image_sharpening.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Image_blur.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Image_HSL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Image_ColorTemperature.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Curve_Spline.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Image_whitebalance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
