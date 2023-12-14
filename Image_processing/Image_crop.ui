@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Image_cropClass</class>
- <widget class="QMainWindow" name="Image_cropClass">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1031</width>
-    <height>750</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Image_crop</string>
-  </property>
-  <property name="styleSheet">
-   <string notr="true">/*
-Dark Console Style Sheet for QT Applications
-Author: Jaime A. Quiroga P.
-Company: GTRONICK
-Last updated: 24/05/2018, 17:12.
-Available at: https://github.com/GTRONICK/QSS/blob/master/ConsoleStyle.qss
-*/
-QWidget {
-	background-color:rgb(0, 0, 0);
-	color: rgb(240, 240, 240);
-	border-color: rgb(58, 58, 58);
-}
+	<class>Image_cropClass</class>
+	<widget class="QMainWindow" name="Image_cropClass">
+		<property name="geometry">
+			<rect>
+				<x>0</x>
+				<y>0</y>
+				<width>1031</width>
+				<height>750</height>
+			</rect>
+		</property>
+		<property name="windowTitle">
+			<string>Image_crop</string>
+		</property>
+		<property name="styleSheet">
+			<string notr="true">
+				/*
+				Dark Console Style Sheet for QT Applications
+				Author: Jaime A. Quiroga P.
+				Company: GTRONICK
+				Last updated: 24/05/2018, 17:12.
+				Available at: https://github.com/GTRONICK/QSS/blob/master/ConsoleStyle.qss
+				*/
+				QWidget {
+				/*background-color:rgb(0, 0, 0);
+				color: rgb(240, 240, 240)*/;
+				border-color: rgb(58, 58, 58);
+				}
 
 				QPlainTextEdit {
 				background-color:rgb(0, 0, 0);
@@ -185,116 +186,117 @@ QWidget {
 				padding: 3px 15px;
 				}
 
-QMenu::item:selected {
-	spacing: 3px; 
-	padding: 3px 15px;
-	background:rgb(115, 115, 115);
-	color:rgb(255, 255, 255);
-	border-width: 1px; 
-	border-radius: 10px;
-	border-color: rgb(58, 58, 58);
-	border-style: inset;
-}</string>
-  </property>
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="9,1">
-    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-     <widget class="QLabel" name="crop_label">
-      <property name="maximumSize">
-       <size>
-        <width>1007</width>
-        <height>666</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout" stretch="0">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <property name="spacing">
-         <number>200</number>
-        </property>
-        <property name="leftMargin">
-         <number>200</number>
-        </property>
-        <property name="rightMargin">
-         <number>200</number>
-        </property>
-        <item>
-         <widget class="QPushButton" name="enter_button">
-          <property name="text">
-           <string>确定</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="crop_combobox">
-          <item>
-           <property name="text">
-            <string>自由</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>原比例</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>2:3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>3:2</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>3:4</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>4:3</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>9:16</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>16:9</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="exit_button">
-          <property name="text">
-           <string>取消</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
- </widget>
- <layoutdefault spacing="6" margin="11"/>
- <resources/>
- <connections/>
+				QMenu::item:selected {
+				spacing: 3px;
+				padding: 3px 15px;
+				background:rgb(115, 115, 115);
+				color:rgb(255, 255, 255);
+				border-width: 1px;
+				border-radius: 10px;
+				border-color: rgb(58, 58, 58);
+				border-style: inset;
+				}
+			</string>
+		</property>
+		<widget class="QWidget" name="centralWidget">
+			<layout class="QVBoxLayout" name="verticalLayout_2" stretch="9,1">
+				<item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+					<widget class="QLabel" name="crop_label">
+						<property name="maximumSize">
+							<size>
+								<width>1007</width>
+								<height>666</height>
+							</size>
+						</property>
+						<property name="styleSheet">
+							<string notr="true"/>
+						</property>
+						<property name="text">
+							<string/>
+						</property>
+					</widget>
+				</item>
+				<item>
+					<layout class="QVBoxLayout" name="verticalLayout" stretch="0">
+						<item>
+							<layout class="QHBoxLayout" name="horizontalLayout">
+								<property name="spacing">
+									<number>200</number>
+								</property>
+								<property name="leftMargin">
+									<number>200</number>
+								</property>
+								<property name="rightMargin">
+									<number>200</number>
+								</property>
+								<item>
+									<widget class="QPushButton" name="enter_button">
+										<property name="text">
+											<string>确定</string>
+										</property>
+									</widget>
+								</item>
+								<item>
+									<widget class="QComboBox" name="crop_combobox">
+										<item>
+											<property name="text">
+												<string>自由</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>原比例</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>2:3</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>3:2</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>3:4</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>4:3</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>9:16</string>
+											</property>
+										</item>
+										<item>
+											<property name="text">
+												<string>16:9</string>
+											</property>
+										</item>
+									</widget>
+								</item>
+								<item>
+									<widget class="QPushButton" name="exit_button">
+										<property name="text">
+											<string>取消</string>
+										</property>
+									</widget>
+								</item>
+							</layout>
+						</item>
+					</layout>
+				</item>
+			</layout>
+		</widget>
+		<widget class="QStatusBar" name="statusBar"/>
+	</widget>
+	<layoutdefault spacing="6" margin="11"/>
+	<resources/>
+	<connections/>
 </ui>
 

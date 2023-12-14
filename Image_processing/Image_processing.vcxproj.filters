@@ -70,6 +70,9 @@
     <ClCompile Include="Image_crop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Image_Histogram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Image_Removal_ui.ui">
@@ -82,18 +85,6 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Image_crop.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="Qt_curve.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="OperateCurve.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="Image_curve2.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="Image_curve1.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -128,18 +119,6 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Image_crop.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Qt_curve.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="CurveChartView.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Image_curve2.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Image_curve1.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -237,6 +237,8 @@ void Image_curve1::choose_channel(QString channel) {
 }
 
 void Image_curve1::on_clicked_enterbutton() {
+
+	//cv::destroyAllWindows();
 	this->close();
 	emit signalsendmat(dst);
 }

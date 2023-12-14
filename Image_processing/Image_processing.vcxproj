@@ -100,6 +100,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Image_Histogram.cpp" />
     <QtRcc Include="Image_processing.qrc" />
     <QtUic Include="Image_brightAcontras.ui" />
     <QtUic Include="Image_crop.ui" />
@@ -122,13 +123,8 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="Image_Removal_ui.ui" />
     <QtUic Include="Image_Rotate_ui.ui" />
-    <QtUic Include="OperateCurve.ui" />
-    <QtUic Include="Qt_curve.ui" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Image_whitebalance.h" />
-    <QtMoc Include="CurveChartView.h" />
-    <ClInclude Include="Curve_Spline.h" />
     <ClInclude Include="GuidedFilter.h" />
     <ClInclude Include="Image_ColorTemperature.h" />
     <QtMoc Include="Image_curve2.h" />

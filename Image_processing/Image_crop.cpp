@@ -181,15 +181,14 @@ void Image_crop::setRects() {
 void Image_crop::paintEvent(QPaintEvent* event)
 {
 
+
     if (CONSTRUCTED_FUNCTION) {
         CONSTRUCTED_FUNCTION = false;
         after_image_crop();
     }
 
     check_centerRect();
-
     setRects();
-
     QPainter painter(this);
     painter.drawPixmap(labelX_, labelY_, labelWidth_, labelHeigth_, pix);
     //»æÖÆÇøÓò
@@ -210,6 +209,8 @@ void Image_crop::paintEvent(QPaintEvent* event)
     labelRightBottom_->move(centerRect_.x() + centerRect_.width() - sDragDotWidth_ / 2 - sDragDotOffset_, centerRect_.y() + centerRect_.height() - sDragDotWidth_ / 2 - sDragDotOffset_);
     labelLeftTop_->move(centerRect_.x() - sDragDotWidth_ / 2 + sDragDotOffset_, centerRect_.y() - sDragDotWidth_ / 2 + sDragDotOffset_);
     labelRightTop_->move(centerRect_.x() + centerRect_.width() - sDragDotWidth_ / 2 - sDragDotOffset_, centerRect_.y() - sDragDotWidth_ / 2 + sDragDotOffset_);
+
+
 
 }
 
