@@ -10,7 +10,6 @@
 #include <qfiledialog.h>
 #include <qmessagebox.h>
 #include <qpixmap.h>
-#include <qsize.h>
 
 cv::Mat Input;
 int row, col;
@@ -21,10 +20,8 @@ Image_processing::Image_processing(QWidget *parent)
     : QMainWindow(parent){
 
     ui.setupUi(this);
-	init_label = true;
 	ui.Removal_button->setEnabled(false);
 	ui.Rotate_button->setEnabled(false);
-	ui.Photo_label->setScaledContents(true);
     connect(ui.Imgread_button, SIGNAL(clicked()), this, SLOT(on_ImgRead_menu_clicked()), Qt::UniqueConnection);
     connect(ui.Removal_button, SIGNAL(clicked()), this, SLOT(on_Removal_button_clicked()), Qt::UniqueConnection);
     connect(ui.open_file_menu, SIGNAL(triggered()), this, SLOT(on_ImgRead_menu_clicked()), Qt::UniqueConnection);
@@ -45,11 +42,7 @@ void Image_processing::on_ImgRead_menu_clicked() {
 	Input = cv::imread(Fileadd.toLatin1().data());
 	row = Input.rows;
 	col = Input.cols;
-	if (init_label) {
-		label_height_ = ui.Photo_label->height();
-		label_width_ = ui.Photo_label->width();
-		init_label = false;
-	}
+
 	receive_mat(Input);
 	ui.Removal_button->setEnabled(true);
 	ui.Rotate_button->setEnabled(true);
@@ -95,17 +88,6 @@ void Image_processing::on_Crop_button_clicked() {
 	return;
 }
 
-
-
-void Image_processing::on_text_button_clicked() {
-	Image_text* w;
-	w = new Image_text;
-	w->show();
-	//connect(w, SIGNAL(bright_and_constras_mat(cv::Mat)), this, SLOT(receive_mat(cv::Mat)), Qt::UniqueConnection);
-	return;
-}
-
-
 void Image_processing::on_B_and_C_button_clicked() {
 	Image_brightAcontras* w;
 	w = new Image_brightAcontras;
@@ -128,30 +110,15 @@ void Image_processing::receive_mat(cv::Mat r_Mat) {
 	Input = r_Mat;
 	row = Input.rows;
 	col = Input.cols;
+
 	cv::Mat tmat;
 	Input.copyTo(tmat);
 	cv::cvtColor(tmat, tmat, cv::COLOR_BGR2RGB);
 	QImage Qinput = QImage((const unsigned char*)(tmat.data), tmat.cols, tmat.rows, tmat.step, QImage::Format_RGB888);
-	float scale_w = label_width_ / Qinput.width();  //宽的比例  
-	float scale_h = label_height_ / Qinput.height();  //高的比例  
-	float new_width, new_height;  //新的宽和高  
-	if ((label_width_ >= Qinput.width()) && (label_height_ >= Qinput.height()))  //图片的原始宽和高均小于显示控件的宽和高  
-	{
-		new_width = Qinput.width();
-		new_height = Qinput.height();
-	}
-	else if (scale_w > scale_h)
-	{
-		new_width = Qinput.width() * scale_h;
-		new_height = Qinput.height() * scale_h;
-	}
-	else if (scale_w <= scale_h)
-	{
-		new_width = Qinput.width() * scale_w;
-		new_height = Qinput.height() * scale_w;
-	}
-	qDebug() << ui.Photo_label->size();
-	ui.Photo_label->show(QSize(new_width,new_height), QPixmap::fromImage(Qinput));
-	ui.Photo_label->setAlignment(Qt::AlignCenter);
+	ui.Photo_label->resize(tmat.size().width, tmat.size().height);
+	qDebug() <<ui.Photo_label->pos() << ui.Photo_label->size().height()<< ui.Photo_label->size().width()<< tmat.size().height<<tmat.size().width;
+	ui.Photo_label->setPixmap(QPixmap::fromImage(Qinput.scaled(ui.Photo_label->size())));
+	//ui.Photo_label->setPixmap(QPixmap::fromImage(Qinput));
+	//ui.Photo_label->setScaledContents(true);
 	return;
 }
